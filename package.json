@@ -2,6 +2,7 @@
   "name": "randtube",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://danielkov.github.io/randtube",
   "dependencies": {
     "axios": "^0.16.1",
     "react": "^15.5.4",
