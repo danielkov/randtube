@@ -47,10 +47,15 @@ class App extends Component {
       <div className="app">
         <header>
           <div className="header-div">
-            <img src={logo} />
+            <img src={logo} alt="RandTube logo" />
             <h2 className="header-h2">RandTube</h2>
             <h3 className="header-h3">Random YouTube Videos</h3>
-            <img src={github} />
+            <img
+              src={github}
+              alt="Project on GitHub"
+              onClick={() => {window.location.replace('https://www.github.com/danielkov/randtube')}}
+              style={ { cursor: 'pointer' } }
+            />
           </div>
         </header>
         <main className="main">
