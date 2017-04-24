@@ -19,6 +19,7 @@ img {
 .app {
   background: #f1f1f1;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .main {
@@ -36,6 +37,7 @@ header {
   right: 0;
   left: 0;
   border-bottom: 1px solid #e8e8e8;
+  z-index: 420;
 }
 
 .header-container {
@@ -68,5 +70,8 @@ header {
 @media all and ( max-width: 430px ) {
   .header-h3 {
     display: none;
+  }
+  .header-h2 {
+    flex: 1;
   }
 }

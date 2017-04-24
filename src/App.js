@@ -7,6 +7,7 @@ import { get } from 'axios'
 
 import YouTubePlayer from './components/YouTubePlayer'
 import Button from './components/Button'
+import Share from './components/Share'
 
 const AK = 'AIzaSyCdn4_CX69Mcb_R4y3-iUXN2gdwsXsOhds'
 const API_URL = 'https://www.googleapis.com/youtube/v3/search'
@@ -25,7 +26,16 @@ class App extends Component {
     videoId: ''
   }
   componentWillMount () {
-    this.getNewVideo()
+    let { pathname } = window.location
+    let possibleVidId = pathname.replace('/', '')
+    if (pathname.length > 11 && possibleVidId.match(/[a-zA-Z0-9-_]/)) {
+      this.setState({
+        videoId: possibleVidId
+      })
+    }
+    else {
+      this.getNewVideo()
+    }
   }
   getNewVideo () {
     get(API_URL, {
@@ -61,6 +71,7 @@ class App extends Component {
         <main className="main">
           <YouTubePlayer id={this.state.videoId} />
           <Button onClick={(e) => {this.getNewVideo()}}>Random Video</Button>
+          <Share url={`${window.location.origin}/${this.state.videoId}`} />
         </main>
       </div>
     )
