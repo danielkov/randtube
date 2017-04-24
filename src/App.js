@@ -27,6 +27,7 @@ class App extends Component {
   }
   componentWillMount () {
     let { pathname } = window.location
+    pathname = pathname.replace('/randtube', '')
     let possibleVidId = pathname.replace('/', '')
     if (pathname.length > 11 && possibleVidId.match(/[a-zA-Z0-9-_]/)) {
       this.setState({
